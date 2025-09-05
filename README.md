@@ -6,7 +6,7 @@ on dev machine:
 pip3 install -r requirements.txt
 python3 app.py
 
-https://localhost:5001
+http://localhost:5001
 
 
 on raspberry pi:
