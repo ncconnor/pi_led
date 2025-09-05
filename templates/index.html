@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Control</title>
+</head>
+<body>
+    <h1>Control LED</h1>
+
+    <h2>LED Status: <span id="status">Unknown</span></h2>
+    <button onclick="checkStatus()">Check Status</button>
+
+    <script>
+        function checkStatus() {
+            fetch('/status')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('status').innerText = data;
+                });
+        }
+    </script>
+    <br>
+    <form method="POST" action="/led">
+        <button type="submit" name="action" value="on">Turn ON</button>
+        <button type="submit" name="action" value="off">Turn OFF</button>
+    </form>
+</body>
+</html>
